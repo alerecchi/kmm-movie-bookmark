@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#172627">
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        app:layout_constraintDimensionRatio="9:16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@android:color/holo_blue_light" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/keywords"
+        app:layout_constraintEnd_toEndOf="@id/poster"
+        app:layout_constraintStart_toStartOf="@id/poster"
+        app:layout_constraintTop_toBottomOf="@id/poster"
+        tools:text="Marvel's Avengers"/>
+
+    <TextView
+        android:id="@+id/keywords"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@android:color/darker_gray"
+        android:lines="1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/poster"
+        app:layout_constraintStart_toStartOf="@id/poster"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="fantasy, comedy..."/>
+</androidx.constraintlayout.widget.ConstraintLayout>
