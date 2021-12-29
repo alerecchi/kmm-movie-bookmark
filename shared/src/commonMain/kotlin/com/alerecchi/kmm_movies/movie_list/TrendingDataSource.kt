@@ -1,4 +1,4 @@
-package com.alerecchi.kmm_movies.movie_list.data
+package com.alerecchi.kmm_movies.movie_list
 
 import com.alerecchi.kmm_movies.movie_list.models.Movie
 import com.alerecchi.kmm_movies.movie_list.models.TrendingMovies

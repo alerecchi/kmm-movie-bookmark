@@ -1,8 +1,10 @@
-package com.alerecchi.kmm_movies.movie_list.di
+package com.alerecchi.kmm_movies.di
 
 import com.alerecchi.kmm_movies.BuildKonfig
-import com.alerecchi.kmm_movies.movie_list.data.TrendingDataSource
-import com.alerecchi.kmm_movies.movie_list.data.TrendingDataSourceImpl
+import com.alerecchi.kmm_movies.movie_details.MovieDetailsDataSource
+import com.alerecchi.kmm_movies.movie_details.MovieDetailsDataSourceImpl
+import com.alerecchi.kmm_movies.movie_list.TrendingDataSource
+import com.alerecchi.kmm_movies.movie_list.TrendingDataSourceImpl
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.auth.*
@@ -15,9 +17,15 @@ import io.ktor.http.*
 
 object NetworkModule {
 
+    private const val BASE_URL = "api.themoviedb.org"
+
     private val httpClient: HttpClient = HttpClient {
         install(JsonFeature) {
-            serializer = KotlinxSerializer()
+            serializer = KotlinxSerializer(
+                kotlinx.serialization.json.Json {
+                    ignoreUnknownKeys = true // if the server sends extra fields, ignore them
+                }
+            )
         }
         install(Logging)
 
@@ -25,7 +33,7 @@ object NetworkModule {
             url {
                 protocol = URLProtocol.HTTPS
             }
-            host = "api.themoviedb.org"
+            host = BASE_URL
         }
 
         install(Auth) {
@@ -39,5 +47,9 @@ object NetworkModule {
 
     fun provideTrendingDataSource(): TrendingDataSource {
         return TrendingDataSourceImpl(httpClient)
+    }
+
+    fun provideMovieDetailsDataSource(): MovieDetailsDataSource {
+        return MovieDetailsDataSourceImpl(httpClient)
     }
 }
