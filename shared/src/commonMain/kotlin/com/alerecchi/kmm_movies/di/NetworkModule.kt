@@ -1,10 +1,10 @@
 package com.alerecchi.kmm_movies.di
 
 import com.alerecchi.kmm_movies.BuildKonfig
-import com.alerecchi.kmm_movies.movie_details.MovieDetailsDataSource
-import com.alerecchi.kmm_movies.movie_details.MovieDetailsDataSourceImpl
-import com.alerecchi.kmm_movies.movie_list.TrendingDataSource
-import com.alerecchi.kmm_movies.movie_list.TrendingDataSourceImpl
+import com.alerecchi.kmm_movies.movie_details.data.MovieDetailsDataSource
+import com.alerecchi.kmm_movies.movie_details.data.MovieDetailsDataSourceImpl
+import com.alerecchi.kmm_movies.movie_list.data.TrendingDataSource
+import com.alerecchi.kmm_movies.movie_list.data.TrendingDataSourceImpl
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.auth.*

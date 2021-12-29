@@ -1,4 +1,4 @@
-package com.alerecchi.kmm_movies.movie_list.models
+package com.alerecchi.kmm_movies.movie_list.data.models
 
 import kotlinx.serialization.Serializable
 

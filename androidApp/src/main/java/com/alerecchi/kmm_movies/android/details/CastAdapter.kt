@@ -10,15 +10,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.alerecchi.kmm_movies.android.R
-import com.alerecchi.kmm_movies.movie_details.CastMember
-import com.alerecchi.kmm_movies.movie_list.models.Movie
-import java.net.URL
+import com.alerecchi.kmm_movies.movie_details.domain.model.CastMember
 
-class CastAdapter: ListAdapter<CastMember, CastViewHolder>(CastDiffCallBack) {
+class CastAdapter : ListAdapter<CastMember, CastViewHolder>(CastDiffCallBack) {
 
     object CastDiffCallBack : DiffUtil.ItemCallback<CastMember>() {
         override fun areItemsTheSame(oldItem: CastMember, newItem: CastMember): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.hashCode() == newItem.hashCode()
         }
 
         override fun areContentsTheSame(oldItem: CastMember, newItem: CastMember): Boolean {
@@ -41,12 +39,10 @@ class CastAdapter: ListAdapter<CastMember, CastViewHolder>(CastDiffCallBack) {
     }
 }
 
-class CastViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class CastViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bindTo(member: CastMember) {
         itemView.findViewById<TextView>(R.id.name).text = member.name
-
-        val imageUrl = URL("https", "image.tmdb.org/t/p/original/", member.profile_path ?: "")
-        itemView.findViewById<ImageView>(R.id.profile).load(imageUrl.toString())
+        itemView.findViewById<ImageView>(R.id.profile).load(member.profile_path)
     }
 }

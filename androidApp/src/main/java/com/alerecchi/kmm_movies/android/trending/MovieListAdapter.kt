@@ -10,18 +10,18 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.alerecchi.kmm_movies.android.R
-import com.alerecchi.kmm_movies.movie_list.models.Movie
-import java.net.URL
+import com.alerecchi.kmm_movies.movie_list.data.models.Movie
+import com.alerecchi.kmm_movies.movie_list.domain.models.MovieTile
 
 class MovieListAdapter(private val clickListener: (Int) -> Unit) :
-    ListAdapter<Movie, MovieTileViewHolder>(MovieDiffCallBack) {
+    ListAdapter<MovieTile, MovieTileViewHolder>(MovieDiffCallBack) {
 
-    object MovieDiffCallBack : DiffUtil.ItemCallback<Movie>() {
-        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+    object MovieDiffCallBack : DiffUtil.ItemCallback<MovieTile>() {
+        override fun areItemsTheSame(oldItem: MovieTile, newItem: MovieTile): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        override fun areContentsTheSame(oldItem: MovieTile, newItem: MovieTile): Boolean {
             return oldItem == newItem
         }
     }
@@ -40,12 +40,11 @@ class MovieListAdapter(private val clickListener: (Int) -> Unit) :
 
 class MovieTileViewHolder(root: View) : RecyclerView.ViewHolder(root) {
 
-    fun bind(movie: Movie, clickListener: (Int) -> Unit) {
+    fun bind(movie: MovieTile, clickListener: (Int) -> Unit) {
         itemView.findViewById<TextView>(R.id.title).text = movie.title
-        val imageUrl = URL("https", "image.tmdb.org/t/p/original/", movie.poster_path)
-        itemView.findViewById<ImageView>(R.id.poster).load(imageUrl.toString())
+        itemView.findViewById<ImageView>(R.id.poster).load(movie.posterPath)
         itemView.setOnClickListener {
             clickListener(movie.id)
         }
-    }//TODO get url for images
+    }
 }

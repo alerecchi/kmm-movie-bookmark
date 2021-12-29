@@ -1,9 +1,9 @@
-package com.alerecchi.kmm_movies.movie_details
+package com.alerecchi.kmm_movies.movie_details.data.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MovieDetails(
+data class ApiMovieDetails(
     val id: Int,
     val overview: String?,
     val title: String,
@@ -11,20 +11,15 @@ data class MovieDetails(
 )
 
 @Serializable
-data class MovieCredits(
+data class ApiMovieCredits(
     val id: Int,
-    val cast: List<CastMember>
+    val cast: List<ApiCastMember>
 )
 
 @Serializable
-data class CastMember(
+data class ApiCastMember(
     val id: Int,
     val name: String,
     val profile_path: String?,
     val character: String
-)
-
-data class MovieResult(
-    val details: MovieDetails,
-    val cast: MovieCredits
 )
