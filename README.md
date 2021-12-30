@@ -1,2 +1,2 @@
-# kmm-movie-bookmark
-A sample app in Kotlin Multiplatform 
+# KMM Movies
+A very simple app to test the potential of Kotlin Multiplatform and Ktor
