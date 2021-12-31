@@ -1,6 +1,8 @@
 # KMM Movies
 A very simple app to test the potential of Kotlin Multiplatform and Ktor
 
+
+### Prerequisites
 To make it work add this line to the file `local.properties`
 ```
 apiKey=[themoviedb API]
