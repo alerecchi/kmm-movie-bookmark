@@ -6,6 +6,7 @@ import com.alerecchi.kmm_movies.movie_details.data.MovieDetailsDataSourceImpl
 import com.alerecchi.kmm_movies.movie_list.data.TrendingDataSource
 import com.alerecchi.kmm_movies.movie_list.data.TrendingDataSourceImpl
 import io.ktor.client.*
+import io.ktor.client.engine.*
 import io.ktor.client.features.*
 import io.ktor.client.features.auth.*
 import io.ktor.client.features.auth.providers.*
@@ -15,11 +16,15 @@ import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 
+expect class HttpClientBuilder() {
+    fun build(block: HttpClientConfig<HttpClientEngineConfig>.() -> Unit): HttpClient
+}
+
 object NetworkModule {
 
     private const val BASE_URL = "api.themoviedb.org"
 
-    private val httpClient: HttpClient = HttpClient {
+    private val httpClient: HttpClient = HttpClientBuilder().build {
         install(JsonFeature) {
             serializer = KotlinxSerializer(
                 kotlinx.serialization.json.Json {
