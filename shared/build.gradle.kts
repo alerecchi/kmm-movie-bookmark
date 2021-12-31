@@ -23,7 +23,7 @@ kotlin {
     }
 
     sourceSets {
-        val ktorVersion = "1.6.7"
+        val ktorVersion = "1.6.2-native-mm-eap-196"
         val commonMain by getting {
             dependencies {
                 implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
@@ -90,5 +90,11 @@ buildkonfig {
 
     defaultConfigs {
         buildConfigField(STRING, "API_KEY", key)
+    }
+}
+
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
     }
 }
