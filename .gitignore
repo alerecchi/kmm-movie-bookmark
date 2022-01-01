@@ -9,3 +9,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+iosApp/iosApp.xcodeproj/xcuserdata
+*.xcuserstate
