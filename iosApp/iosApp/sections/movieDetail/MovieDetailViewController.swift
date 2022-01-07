@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import Injector
 import Kingfisher
 
 private typealias Datasource = UICollectionViewDiffableDataSource<Section, CastMemberViewModel>
@@ -16,7 +17,7 @@ private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CastMemberVie
 
 final class MovieDetailViewController: UIViewController {
 
-	private let viewModel: MovieDetailViewModel = DI.shared.resolve(MovieDetailViewModel.self)
+	private let viewModel: MovieDetailViewModel = try! Injector.shared.resolve(MovieDetailViewModel.self)
 
 	private var cancellables: Set<AnyCancellable> = Set()
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import Injector
 import Kingfisher
 
 private typealias Datasource = UICollectionViewDiffableDataSource<Section, MovieTileViewModel>
@@ -19,7 +20,7 @@ enum Section: Hashable {
 
 final class TrendingMoviesViewController: UIViewController, UICollectionViewDelegate {
 
-	private let viewModel: TrendingMoviesViewModel = DI.shared.resolve(TrendingMoviesViewModel.self)
+	private let viewModel: TrendingMoviesViewModel = try! Injector.shared.resolve(TrendingMoviesViewModel.self)
 
 	private var cancellables: Set<AnyCancellable> = Set()
 

@@ -19,12 +19,11 @@
 		C183335D278105EA002E713B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C183335C278105EA002E713B /* LaunchScreen.storyboard */; };
 		C183335F27810640002E713B /* TrendingMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183335E27810640002E713B /* TrendingMoviesViewController.swift */; };
 		C1833363278106E3002E713B /* TrendingMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1833362278106E3002E713B /* TrendingMoviesViewModel.swift */; };
-		C183336627810717002E713B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = C183336527810717002E713B /* Swinject */; };
 		C183336927810759002E713B /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183336827810759002E713B /* ViewModelAssembly.swift */; };
 		C183336B278107A5002E713B /* StateMachineAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183336A278107A5002E713B /* StateMachineAssembly.swift */; };
 		C183336D278107F5002E713B /* DataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183336C278107F5002E713B /* DataSourceAssembly.swift */; };
-		C183336F2781082B002E713B /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183336E2781082B002E713B /* DI.swift */; };
 		C19CD4602781B9EA003C3CF7 /* MovieTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CD45F2781B9EA003C3CF7 /* MovieTileCell.swift */; };
+		C1C677802788AC0800EED71A /* Injector in Frameworks */ = {isa = PBXBuildFile; productRef = C1C6777F2788AC0800EED71A /* Injector */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,7 +56,6 @@
 		C183336827810759002E713B /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		C183336A278107A5002E713B /* StateMachineAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineAssembly.swift; sourceTree = "<group>"; };
 		C183336C278107F5002E713B /* DataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAssembly.swift; sourceTree = "<group>"; };
-		C183336E2781082B002E713B /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		C19CD45F2781B9EA003C3CF7 /* MovieTileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C677802788AC0800EED71A /* Injector in Frameworks */,
 				C183333527810430002E713B /* Kingfisher in Frameworks */,
-				C183336627810717002E713B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +147,6 @@
 				C183336827810759002E713B /* ViewModelAssembly.swift */,
 				C183336A278107A5002E713B /* StateMachineAssembly.swift */,
 				C183336C278107F5002E713B /* DataSourceAssembly.swift */,
-				C183336E2781082B002E713B /* DI.swift */,
 			);
 			path = di;
 			sourceTree = "<group>";
@@ -174,7 +171,7 @@
 			name = iosApp;
 			packageProductDependencies = (
 				C183333427810430002E713B /* Kingfisher */,
-				C183336527810717002E713B /* Swinject */,
+				C1C6777F2788AC0800EED71A /* Injector */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -206,7 +203,7 @@
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
 				C183333327810430002E713B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				C183336427810717002E713B /* XCRemoteSwiftPackageReference "Swinject" */,
+				C1C6777E2788AC0800EED71A /* XCRemoteSwiftPackageReference "injector" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -256,7 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C183336F2781082B002E713B /* DI.swift in Sources */,
 				C183335727810458002E713B /* AppDelegate.swift in Sources */,
 				C177D4D32784EF3B0021C54A /* CastMemberCell.swift in Sources */,
 				C183335927810472002E713B /* SceneDelegate.swift in Sources */,
@@ -474,12 +470,12 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		C183336427810717002E713B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+		C1C6777E2788AC0800EED71A /* XCRemoteSwiftPackageReference "injector" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
+			repositoryURL = "https://fripp@bitbucket.org/fripp/injector.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 0.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -490,10 +486,10 @@
 			package = C183333327810430002E713B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		C183336527810717002E713B /* Swinject */ = {
+		C1C6777F2788AC0800EED71A /* Injector */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C183336427810717002E713B /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
+			package = C1C6777E2788AC0800EED71A /* XCRemoteSwiftPackageReference "injector" */;
+			productName = Injector;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
