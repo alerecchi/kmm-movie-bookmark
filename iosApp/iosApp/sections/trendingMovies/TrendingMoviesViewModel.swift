@@ -38,7 +38,7 @@ final class TrendingMoviesViewModel: Observer {
 	private let actionsSubject: PassthroughSubject<TrendingMoviesAction, Never>
 	private let stateSubject: CurrentValueSubject<TrendingMoviesState, Never>
 
-	var actions: AnyPublisher<TrendingMoviesAction, Never> { actionsSubject.removeDuplicates().eraseToAnyPublisher() }
+	var actions: AnyPublisher<TrendingMoviesAction, Never> { actionsSubject.eraseToAnyPublisher() }
 	var state: AnyPublisher<TrendingMoviesState, Never> { stateSubject.removeDuplicates().eraseToAnyPublisher() }
 
 	init(trendingMoviesStateMachine: TrendingMoviesStateMachine) {
